@@ -1,0 +1,12 @@
+FROM ubuntu:latest
+
+RUN apt-get -y update && \
+    apt-get install -y wget && \
+    wget -P /usr/bin/ https://github.com/containous/traefik/releases/download/v1.3.0/traefik_linux-amd64 && \
+    chmod u+x /usr/bin/traefik_linux-amd64
+
+#COPY traefik.toml /etc/traefik_vnf/traefik.toml
+
+EXPOSE 80
+EXPOSE 8080
+ENTRYPOINT /bin/bash
