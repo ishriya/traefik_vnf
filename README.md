@@ -21,7 +21,7 @@ We create four containers as follows.
 
 ## 1. Clone the repository
 
-` git clone https://github.com/ishu06/traefik_vnf.git`
+` git clone https://github.com/ishriya/traefik_vnf.git`
 
 ## 2. Navigate to the folder
 
