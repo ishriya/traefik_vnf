@@ -17,7 +17,7 @@ We create four containers as follows.
 
 ## Installation instructions
 
-### Note: Traefik has its own official docker image. Since it is an alpine based image, we use customized ubuntu based docker image built using binary.
+##### Note: Traefik has its own official docker image. Since it is an alpine based image, we use customized ubuntu based docker image built using binary.
 
 ## 1.Clone the repository
 
