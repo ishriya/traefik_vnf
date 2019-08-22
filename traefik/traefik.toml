@@ -22,7 +22,7 @@
 # Optional
 # Default:
 [entryPoints]
-  [entryPoints.web]
+  [entryPoints.http]
     address = ":80"
 
   [entryPoints.websecure]
