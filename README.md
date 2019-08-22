@@ -13,7 +13,6 @@ We create four containers as follows.
 - Both the servers return the hostname of the container processing the request.
 - Labels are used to define the rules and metadata of the docker containers.
 4. Client
-- sends the request
 
 ## Installation instructions
 
@@ -30,7 +29,7 @@ We create four containers as follows.
 ## 3. Build the containers 
 
 ` docker-compose up --build -d`
- wh
+ 
 ##### You can access the web dashboard on localhost:8080/ to see the running services.
 
 ## Testing and access logs
