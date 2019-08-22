@@ -19,7 +19,7 @@ We create four containers as follows.
 
 ##### Note: Traefik has its own official docker image. Since it is an alpine based image, we use customized ubuntu based docker image built using binary.
 
-## 1.Clone the repository
+## 1. Clone the repository
 
 ` git clone https://github.com/ishu06/traefik_vnf.git`
 
