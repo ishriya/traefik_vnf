@@ -2,14 +2,17 @@ version: '3'
 services:
 
  traefik:
-  image: ishu06/traefik_test1:trial
+  build:
+      context: ./traef
+      dockerfile: dockerfile
+  command: --web --docker --docker.domain=docker.localhost --logLevel=DEBUG
+  container_name: test1
   ports:
     - "80:80"
     - "8080:8080"
     - "443:443"
   volumes:
     - /var/run/docker.sock:/var/run/docker.sock
-    - /dev/null:/traefik.toml
   networks:
     net:
        ipv4_address: 172.20.0.4
@@ -32,6 +35,14 @@ services:
     - "traefik.backend=echo"
     - "traefik.frontend.rule= Host:echo-echo.example.com"
   container_name: http2
+ client:
+   build:
+       context: ./client
+       dockerfile: docker
+   networks:
+     net:
+       ipv4_address: 172.20.0.2
+   tty: true
 networks:
     net:
        driver: bridge
@@ -39,3 +50,4 @@ networks:
           driver: default
           config:
            - subnet: 172.20.0.0/16
+
