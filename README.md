@@ -12,7 +12,7 @@ We create four containers as follows.
 3. http server 2
 - Both the servers return the hostname of the container processing the request.
 - Labels are used to define the rules and metadata of the docker containers.
-4. client
+4. Client
 - sends the request
 
 ## Installation instructions
