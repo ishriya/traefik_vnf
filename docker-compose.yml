@@ -6,7 +6,7 @@ services:
       context: ./traef
       dockerfile: dockerfile
   command: --web --docker --docker.domain=docker.localhost --logLevel=DEBUG
-  container_name: test1
+  container_name: traefik_test
   ports:
     - "80:80"
     - "8080:8080"
@@ -42,6 +42,7 @@ services:
    networks:
      net:
        ipv4_address: 172.20.0.2
+   container_name: traefik_client
    tty: true
 networks:
     net:
