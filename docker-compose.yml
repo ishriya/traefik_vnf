@@ -3,7 +3,7 @@ services:
 
  traefik:
   build:
-      context: ./traef
+      context: ./traefik
       dockerfile: dockerfile
   command: --web --docker --docker.domain=docker.localhost --logLevel=DEBUG
   container_name: traefik_test
