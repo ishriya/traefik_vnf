@@ -1,4 +1,4 @@
-# traefik_vnf - Local host implementation
+# Traefik VNF - Local host implementation
 
 Traefik is a reverse proxy and load balancer. This scenario explains how to use traefik to balance the load between two http servers.
 
