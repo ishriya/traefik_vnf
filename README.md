@@ -8,7 +8,7 @@ Four containers are created as follows.
 
 1. Traefik
  - It is the load balancer and it is configured to listen on port 80 and 443.
- - It also has a web dashboard available of port 8080.
+ - It also has a web dashboard available on port 8080.
 2. http server 1
 3. http server 2
 - Both the servers return the hostname of the container processing the request.
