@@ -1,15 +1,12 @@
 FROM ubuntu:latest
 WORKDIR /
-RUN apt-get -y update && \\
-    apt-get install -y wget && \
-    wget https://github.com/containous/traefik/releases/download/v1.7.14/traefik_linux-amd64 && \
-    chmod u+x traefik_linux-amd64
+RUN apt-get -y update && \
+    apt-get install -y wget
 
-COPY entrypoint.sh /
+RUN wget -P /usr/local/bin "https://github.com/containous/traefik/releases/download/v1.7.14/traefik" && \
+    chmod u+x /usr/local/bin/traefik
 
+COPY traefik.toml /etc/traefik/traefik.toml
 EXPOSE 80 8080 443
 
-ENTRYPOINT ["/entrypoint.sh"]
-RUN chmod +x entrypoint.sh
-CMD ["/bin/bash"]
-
+ENTRYPOINT ["/usr/local/bin/traefik"]
