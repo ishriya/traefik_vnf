@@ -1,19 +1,14 @@
 # Traefik VNF - Localhost implementation
 
-Traefik is a reverse proxy and load balancer. Given below is a scenario that uses traefik to balance the load between two http servers.
+Traefik is a reverse proxy and load balancer. 
 
 ## Scenario
 
-Four containers are created as follows.
+-  A webservice called whoami is started - a simple web service that outputs information about the machine it is deployed on (its IP address, host, and so on).
 
-1. Traefik
- - It is the load balancer and it is configured to listen on port 80 and 443.
- - It also has a web dashboard available on port 8080.
-2. http server 1
-3. http server 2
-- Both the servers return the hostname of the container processing the request.
-- Labels are used to define the rules and metadata of the docker containers.
-4. Client
+- In this scenario, two webservice are started as containers (see docker-compose file)
+
+- If two containers are assigned the same domain, then Traefik will automatically load balance traffic between them.
 
 ## Installation instructions
 
@@ -47,5 +42,4 @@ Execute the following commands.
 
 3. To get the benchmarked data (using Apache ab as the load generator) 
 
-` docker exec -it traefik_client cat traefik_test1.txt`   
-` docker exec -it traefik_client cat traefik_test2.txt`   
+` docker exec -it traefik_client cat traefik_test1.txt`     
