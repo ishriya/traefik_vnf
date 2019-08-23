@@ -1,6 +1,7 @@
 # Traefik VNF - Localhost implementation
 
-Traefik is a reverse proxy and load balancer. 
+Traefik is a very simple reverse proxy and load balancer. It configures itself automatically and dynamically. 
+However, it is also possible to configure Traefik manually. Here, we will consider a simple scenario where traefik configures itself automatically to balance the load.
 
 ## Scenario
 
