@@ -21,34 +21,10 @@
 #
 # Optional
 # Default:
+
 [entryPoints]
   [entryPoints.http]
     address = ":80"
-
-  [entryPoints.websecure]
-    address = ":443"
-    
-[frontends]
-
-  [frontends.frontend1]
-  backend = "machine-echo"
-    [frontends.frontend1.routes.test_1]
-    rule = "Host:machine-echo.example.com"
-
-  [frontends.frontend2]
-  backend = "echo"
-    [frontends.frontend2.routes.test_1]
-    rule = "Host:echo.example.com"
-
-[backends]
-
-  [backends.backend1]
-    [backends.backend1.servers.server1]
-    url = "http://172.20.0.5"
-
-  [backends.backend2]
-    [backends.backend2.servers.server1]
-    url = "http://172.20.0.6"
 
 ################################################################
 # Traefik logs configuration
