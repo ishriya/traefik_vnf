@@ -3,52 +3,42 @@ services:
 
  traefik:
   build:
-      context: ./traefik
-      dockerfile: dockerfile
+     context: ./traefik
+     dockerfile: dockerfile
   command: --web --docker --docker.domain=docker.localhost --logLevel=DEBUG
-  container_name: traefik_test
   ports:
     - "80:80"
     - "8080:8080"
-    - "443:443"
   volumes:
     - /var/run/docker.sock:/var/run/docker.sock
+  container_name: traefik_vnf
   networks:
     net:
-       ipv4_address: 172.20.0.4
-  tty: true
- machine:
-  image: katacoda/docker-http-server
-  networks:
-    net:
-       ipv4_address: 172.20.0.5
+       ipv4_address: 172.20.0.7
+ whoami1:
+  image: emilevauge/whoami
   labels:
-    - "traefik.backend=machine-echo"
-    - "traefik.frontend.rule= Host:machine-echo.example.com"
-  container_name: http1
- echo:
-  image: katacoda/docker-http-server:v2
-  networks:
-    net:
-       ipv4_address: 172.20.0.6
+    - "traefik.backend=whoami"
+    - "traefik.frontend.rule=Host:whoami.docker.localhost"
+ whoami2:
+  image: emilevauge/whoami
   labels:
-    - "traefik.backend=echo"
-    - "traefik.frontend.rule= Host:echo-echo.example.com"
-  container_name: http2
+    - "traefik.backend=whoami"
+    - "traefik.frontend.rule=Host:whoami.docker.localhost"
  client:
    build:
        context: ./client
        dockerfile: docker
    networks:
      net:
-       ipv4_address: 172.20.0.2
+       ipv4_address: 172.20.0.9
    container_name: traefik_client
    tty: true
+
 networks:
-    net:
+   net:
        driver: bridge
        ipam:
-          driver: default
-          config:
-           - subnet: 172.20.0.0/16
-
+           driver: default
+           config:
+             - subnet: 172.20.0.0/16
