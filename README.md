@@ -7,7 +7,7 @@ Here, we will consider a simple scenario where traefik configures itself automat
 
 -  A webservice called whoami is started - a simple web service that outputs information about the machine it is deployed on (its IP address, host, and so on).
 
-- In this scenario, two webservice are started as containers (see docker-compose file)
+- In this scenario, two webservices are started as containers (see docker-compose file)
 
 - If two containers are assigned the same domain, then Traefik will automatically load balance traffic between them.
 
